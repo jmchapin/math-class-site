@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mrs. Chapin's 5th Grade Math Class Class</title>
+<title>Ms. Rivera's 3rd Grade Math Class</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
@@ -298,10 +298,10 @@
 <header>
   <div class="header-inner">
     <div class="brand">
-      <div class="brand-badge">3</div>
+      <div class="brand-badge" id="badge-letter">3</div>
       <div>
-        <h1>Ms. Rivera's 3rd Grade Math</h1>
-        <p>Room 14 · Riverside Elementary</p>
+        <h1 id="teacher-name">Ms. Rivera's 3rd Grade Math</h1>
+        <p id="room-line">Room 14 · Riverside Elementary</p>
       </div>
     </div>
   </div>
@@ -322,33 +322,29 @@
   <section id="home" class="active">
     <div class="hero">
       <div class="num-of-day">
-        <span class="num">47</span>
+        <span class="num" id="num-of-day-value">47</span>
         <span class="lbl">NUMBER OF THE DAY</span>
       </div>
       <div class="hero-text">
         <h2>Welcome, mathematicians and families!</h2>
-        <ul class="fact-list">
-          <li>47 = 40 + 7</li>
-          <li>47 is an odd number</li>
-          <li>47 is a prime number</li>
-        </ul>
+        <ul class="fact-list" id="fact-list"></ul>
       </div>
     </div>
 
     <div class="welcome-note">
-      <h3>This week in math</h3>
-      <p>We're working on multiplication facts (1–5) and skip counting. Please check the Homework tab for what's due each day, and the Calendar for our Friday quiz.</p>
+      <h3 id="weekly-heading">This week in math</h3>
+      <p id="weekly-text">We're working on multiplication facts (1–5) and skip counting. Please check the Homework tab for what's due each day, and the Calendar for our Friday quiz.</p>
     </div>
 
     <div class="home-grid">
       <div class="peek-card">
         <h3>📋 Homework this week</h3>
-        <p>4 assignments, with a quiz on Friday.</p>
+        <p id="homework-summary">4 assignments, with a quiz on Friday.</p>
         <button class="goto" data-goto="homework">See homework</button>
       </div>
       <div class="peek-card">
         <h3>🔗 Practice at home</h3>
-        <p>Free sites for extra multiplication and number-sense practice.</p>
+        <p id="resources-summary">Free sites for extra multiplication and number-sense practice.</p>
         <button class="goto" data-goto="resources">See resources</button>
       </div>
     </div>
@@ -357,44 +353,8 @@
   <!-- HOMEWORK -->
   <section id="homework">
     <h2 style="margin-bottom:18px;">This week's homework</h2>
-
-    <div class="day-row">
-      <div class="day-name">Monday<span class="assigned">assigned in class</span></div>
-      <div>
-        <p class="task-title">Practice pages 12–13</p>
-        <p class="task-desc">Adding within 100, with regrouping. Show your work in the boxes.</p>
-      </div>
-      <div class="due-badge">Due Tue</div>
-    </div>
-
-    <div class="day-row">
-      <div class="day-name">Wednesday<span class="assigned">assigned in class</span></div>
-      <div>
-        <p class="task-title">Skip-counting worksheet</p>
-        <p class="task-desc">Count by 5s from 0 to 100, both forward and backward.</p>
-      </div>
-      <div class="due-badge">Due Thu</div>
-    </div>
-
-    <div class="day-row">
-      <div class="day-name">Thursday<span class="assigned">assigned in class</span></div>
-      <div>
-        <p class="task-title">Flashcard practice, 15 minutes</p>
-        <p class="task-desc">Review multiplication facts for 2s, 3s, 4s, and 5s ahead of Friday's quiz.</p>
-      </div>
-      <div class="due-badge">Ongoing</div>
-    </div>
-
-    <div class="day-row">
-      <div class="day-name">Friday<span class="assigned">in class</span></div>
-      <div>
-        <p class="task-title">Multiplication facts quiz (1–5)</p>
-        <p class="task-desc">No extra homework tonight — great job this week!</p>
-      </div>
-      <div class="due-badge done">Quiz day</div>
-    </div>
-
-    <p style="margin-top:20px; font-size:0.88rem; color:#5b7089;">Edit this section's HTML to update assignments each week — each block is one <code>.day-row</code>.</p>
+    <div id="homework-list"></div>
+    <p style="margin-top:20px; font-size:0.88rem; color:#5b7089;">To update this each week, edit the <code>homework</code> list near the bottom of the page — no HTML tags needed, just plain text between the quotes.</p>
   </section>
 
   <!-- RESOURCES -->
@@ -402,28 +362,9 @@
     <h2 style="margin-bottom:18px;">Practice at home</h2>
     <p style="margin-top:0; margin-bottom:20px;">A few free places to keep practicing outside of class. A grown-up can help set these up the first time.</p>
 
-    <div class="res-grid">
-      <div class="res-card">
-        <div class="res-tag">Video lessons · free</div>
-        <h3>Khan Academy Kids</h3>
-        <p>Short, friendly video lessons and practice problems matched to what we're learning in class.</p>
-        <a href="https://www.khanacademy.org/" target="_blank" rel="noopener">khanacademy.org →</a>
-      </div>
-      <div class="res-card b">
-        <div class="res-tag">Games · free</div>
-        <h3>Math Playground</h3>
-        <p>Math games for multiplication, fractions, and logic — good for 10–15 minutes of fun practice.</p>
-        <a href="https://www.mathplayground.com/" target="_blank" rel="noopener">mathplayground.com →</a>
-      </div>
-      <div class="res-card c">
-        <div class="res-tag">Practice · free to start</div>
-        <h3>IXL Math</h3>
-        <p>Skill-by-skill practice with instant feedback. Free daily practice is available without an account.</p>
-        <a href="https://www.ixl.com/math/" target="_blank" rel="noopener">ixl.com/math →</a>
-      </div>
-    </div>
+    <div class="res-grid" id="resources-list"></div>
 
-    <p style="margin-top:24px; font-size:0.88rem; color:#5b7089;">Add more cards by copying a <code>.res-card</code> block and changing the title, description, and link.</p>
+    <p style="margin-top:24px; font-size:0.88rem; color:#5b7089;">To add or change a resource, edit the <code>resources</code> list near the bottom of the page.</p>
   </section>
 
   <!-- CALENDAR -->
@@ -443,7 +384,7 @@
 </main>
 
 <footer class="wrap">
-  <div>Questions? Email <a href="mailto:rivera@riversideelementary.example.edu">rivera@riversideelementary.example.edu</a></div>
+  <div>Questions? Email <a id="contact-email" href="#"></a></div>
   <div>Made for Room 14 💛</div>
 </footer>
 
@@ -460,6 +401,118 @@
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
+  /* ============================================================
+     EDIT EVERYTHING YOU NEED TO UPDATE RIGHT HERE.
+     Nothing outside this box needs to change week to week.
+     Just replace the text between the quotes " " and save.
+     ============================================================ */
+  const siteConfig = {
+
+    // ---- Header ----
+    teacherName: "Ms. Rivera's 3rd Grade Math",
+    roomLine: "Room 14 · Riverside Elementary",
+    badgeLetter: "3",
+    contactEmail: "rivera@riversideelementary.example.edu",
+
+    // ---- Home tab ----
+    numberOfDay: {
+      number: 47,
+      facts: [
+        "47 = 40 + 7",
+        "47 is an odd number",
+        "47 is a prime number"
+      ]
+    },
+    weeklyHeading: "This week in math",
+    weeklyText: "We're working on multiplication facts (1–5) and skip counting. Please check the Homework tab for what's due each day, and the Calendar for our Friday quiz.",
+    homeworkSummary: "4 assignments, with a quiz on Friday.",
+    resourcesSummary: "Free sites for extra multiplication and number-sense practice.",
+
+    // ---- Homework tab ----
+    // status: "pending" (red badge) or "done" (green badge)
+    homework: [
+      { day: "Monday", assigned: "assigned in class", title: "Practice pages 12–13", desc: "Adding within 100, with regrouping. Show your work in the boxes.", due: "Due Tue", status: "pending" },
+      { day: "Wednesday", assigned: "assigned in class", title: "Skip-counting worksheet", desc: "Count by 5s from 0 to 100, both forward and backward.", due: "Due Thu", status: "pending" },
+      { day: "Thursday", assigned: "assigned in class", title: "Flashcard practice, 15 minutes", desc: "Review multiplication facts for 2s, 3s, 4s, and 5s ahead of Friday's quiz.", due: "Ongoing", status: "pending" },
+      { day: "Friday", assigned: "in class", title: "Multiplication facts quiz (1–5)", desc: "No extra homework tonight — great job this week!", due: "Quiz day", status: "done" }
+    ],
+
+    // ---- Resources tab ----
+    resources: [
+      { tag: "Video lessons · free", title: "Khan Academy Kids", desc: "Short, friendly video lessons and practice problems matched to what we're learning in class.", link: "https://www.khanacademy.org/", linkText: "khanacademy.org" },
+      { tag: "Games · free", title: "Math Playground", desc: "Math games for multiplication, fractions, and logic — good for 10–15 minutes of fun practice.", link: "https://www.mathplayground.com/", linkText: "mathplayground.com" },
+      { tag: "Practice · free to start", title: "IXL Math", desc: "Skill-by-skill practice with instant feedback. Free daily practice is available without an account.", link: "https://www.ixl.com/math/", linkText: "ixl.com/math" }
+    ],
+
+    // ---- Calendar tab ----
+    // day-of-month: list of 'hw', 'quiz', and/or 'event'
+    events: {
+      5: ['hw'],
+      9: ['hw'],
+      12: ['quiz'],
+      18: ['event'],
+      23: ['hw','quiz']
+    }
+  };
+  /* ============================================================
+     Nothing below this line needs to be edited.
+     ============================================================ */
+
+  function renderSite(cfg){
+    document.getElementById('teacher-name').textContent = cfg.teacherName;
+    document.getElementById('room-line').textContent = cfg.roomLine;
+    document.getElementById('badge-letter').textContent = cfg.badgeLetter;
+    document.getElementById('contact-email').textContent = cfg.contactEmail;
+    document.getElementById('contact-email').href = 'mailto:' + cfg.contactEmail;
+
+    document.getElementById('num-of-day-value').textContent = cfg.numberOfDay.number;
+    const factList = document.getElementById('fact-list');
+    factList.innerHTML = '';
+    cfg.numberOfDay.facts.forEach(f => {
+      const li = document.createElement('li');
+      li.textContent = f;
+      factList.appendChild(li);
+    });
+
+    document.getElementById('weekly-heading').textContent = cfg.weeklyHeading;
+    document.getElementById('weekly-text').textContent = cfg.weeklyText;
+    document.getElementById('homework-summary').textContent = cfg.homeworkSummary;
+    document.getElementById('resources-summary').textContent = cfg.resourcesSummary;
+
+    const hwList = document.getElementById('homework-list');
+    hwList.innerHTML = '';
+    cfg.homework.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'day-row';
+      row.innerHTML = `
+        <div class="day-name">${item.day}<span class="assigned">${item.assigned}</span></div>
+        <div>
+          <p class="task-title">${item.title}</p>
+          <p class="task-desc">${item.desc}</p>
+        </div>
+        <div class="due-badge${item.status === 'done' ? ' done' : ''}">${item.due}</div>
+      `;
+      hwList.appendChild(row);
+    });
+
+    const accentClasses = ['', 'b', 'c'];
+    const resList = document.getElementById('resources-list');
+    resList.innerHTML = '';
+    cfg.resources.forEach((r, i) => {
+      const card = document.createElement('div');
+      card.className = 'res-card ' + accentClasses[i % accentClasses.length];
+      card.innerHTML = `
+        <div class="res-tag">${r.tag}</div>
+        <h3>${r.title}</h3>
+        <p>${r.desc}</p>
+        <a href="${r.link}" target="_blank" rel="noopener">${r.linkText} →</a>
+      `;
+      resList.appendChild(card);
+    });
+  }
+
+  renderSite(siteConfig);
+
   // ---- Tab switching ----
   const tabs = document.querySelectorAll('nav button[role="tab"]');
   const sections = document.querySelectorAll('main > section');
@@ -473,15 +526,8 @@
     btn.addEventListener('click', () => showTab(btn.dataset.goto));
   });
 
-  // ---- Calendar generation (edit `events` to customize) ----
-  const events = {
-    // day-of-month : 'hw' | 'quiz' | 'event'  (multiple types: array)
-    5: ['hw'],
-    9: ['hw'],
-    12: ['quiz'],
-    18: ['event'],
-    23: ['hw','quiz']
-  };
+  // ---- Calendar generation (uses `events` from siteConfig above) ----
+  const events = siteConfig.events;
 
   const now = new Date();
   const year = now.getFullYear();
