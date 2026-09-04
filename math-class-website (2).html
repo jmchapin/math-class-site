@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ms. Rivera's 3rd Grade Math Class</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFAF6;
+    --grid:#C9DCEA;
+    --ink:#1F3A5F;
+    --pencil:#F2B705;
+    --apple:#D6453D;
+    --leaf:#2F5233;
+    --card-line: rgba(31,58,95,0.16);
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{ margin:0; padding:0; }
+
+  body{
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -1px -1px;
+    color:var(--ink);
+    font-family:'Atkinson Hyperlegible', sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    min-height:100vh;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    color:var(--ink);
+    margin:0;
+  }
+
+  a{ color:var(--leaf); }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 20px 64px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--ink);
+    color:var(--paper);
+    padding:22px 20px 0;
+  }
+  .header-inner{
+    max-width:920px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px;
+    padding-bottom:18px;
+  }
+  .brand{ display:flex; align-items:center; gap:14px; }
+  .brand-badge{
+    width:52px; height:52px; border-radius:50%;
+    background:var(--pencil);
+    color:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Baloo 2',sans-serif; font-weight:800; font-size:22px;
+    flex-shrink:0;
+    box-shadow: 0 0 0 4px rgba(242,183,5,0.25);
+  }
+  .brand h1{ font-size:1.5rem; color:var(--paper); line-height:1.2; }
+  .brand p{ margin:2px 0 0; font-size:0.92rem; color:#C9DCEA; }
+
+  nav{
+    display:flex;
+    gap:4px;
+    max-width:920px;
+    margin:0 auto;
+    padding:0 0;
+    overflow-x:auto;
+  }
+  nav button{
+    font-family:'Baloo 2', sans-serif;
+    font-size:1rem;
+    font-weight:600;
+    background:transparent;
+    color:#BFD3E8;
+    border:none;
+    border-bottom:3px solid transparent;
+    padding:10px 16px 12px;
+    cursor:pointer;
+    white-space:nowrap;
+    border-radius:8px 8px 0 0;
+  }
+  nav button:hover{ background:rgba(255,255,255,0.06); color:var(--paper); }
+  nav button[aria-selected="true"]{
+    color:var(--paper);
+    border-bottom-color:var(--pencil);
+    background:var(--paper);
+    color:var(--ink);
+  }
+  nav button:focus-visible{ outline:2px solid var(--pencil); outline-offset:2px; }
+
+  main{ padding-top:36px; }
+  section{ display:none; }
+  section.active{ display:block; }
+
+  /* ---------- Hero (Home) ---------- */
+  .hero{
+    display:flex;
+    gap:32px;
+    align-items:center;
+    flex-wrap:wrap;
+    padding:8px 0 28px;
+    border-bottom:2px dashed var(--card-line);
+    margin-bottom:28px;
+  }
+  .num-of-day{
+    flex-shrink:0;
+    width:150px; height:150px;
+    border-radius:50%;
+    background:var(--paper);
+    border:5px solid var(--ink);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .num-of-day .num{ font-family:'Baloo 2',sans-serif; font-size:3.2rem; font-weight:800; color:var(--apple); line-height:1; }
+  .num-of-day .lbl{ font-size:0.7rem; letter-spacing:0.02em; margin-top:4px; }
+  .hero-text h2{ font-size:1.7rem; margin-bottom:8px; }
+  .fact-list{ list-style:none; margin:10px 0 0; padding:0; display:flex; flex-direction:column; gap:6px; }
+  .fact-list li:before{ content:"✓ "; color:var(--leaf); font-weight:700; }
+
+  .welcome-note{
+    background:#fff;
+    border:1px solid var(--card-line);
+    border-left:5px solid var(--pencil);
+    padding:18px 20px;
+    border-radius:4px;
+    margin-bottom:28px;
+  }
+  .welcome-note h3{ font-size:1.1rem; margin-bottom:6px; }
+
+  .home-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  .peek-card{
+    background:#fff;
+    border:1px solid var(--card-line);
+    border-radius:4px;
+    padding:16px 18px;
+  }
+  .peek-card h3{ font-size:1rem; margin-bottom:8px; display:flex; align-items:center; gap:8px;}
+  .peek-card p{ margin:0; font-size:0.95rem; }
+  .peek-card button.goto{
+    margin-top:10px;
+    font-family:'Atkinson Hyperlegible',sans-serif;
+    font-weight:700;
+    background:none; border:none; color:var(--leaf); cursor:pointer; padding:0;
+    text-decoration:underline;
+  }
+
+  /* ---------- Homework ---------- */
+  .day-row{
+    display:grid;
+    grid-template-columns:120px 1fr 110px;
+    gap:14px;
+    align-items:start;
+    padding:16px 0;
+    border-bottom:1px solid var(--card-line);
+  }
+  .day-row:first-child{ padding-top:0; }
+  .day-name{ font-family:'Baloo 2',sans-serif; font-weight:700; font-size:1.05rem; }
+  .day-name .assigned{ display:block; font-family:'Atkinson Hyperlegible',sans-serif; font-weight:400; font-size:0.78rem; color:#5b7089; margin-top:2px;}
+  .task-title{ font-weight:700; margin:0 0 4px; }
+  .task-desc{ margin:0; font-size:0.93rem; color:#3d5372; }
+  .due-badge{
+    justify-self:end;
+    background:var(--apple);
+    color:#fff;
+    font-size:0.78rem;
+    font-weight:700;
+    padding:5px 10px;
+    border-radius:20px;
+    white-space:nowrap;
+    height:fit-content;
+  }
+  .due-badge.done{ background:var(--leaf); }
+
+  /* ---------- Resources ---------- */
+  .res-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
+    gap:18px;
+  }
+  .res-card{
+    background:#fff;
+    border:1px solid var(--card-line);
+    border-top:4px solid var(--leaf);
+    border-radius:2px;
+    padding:16px 18px;
+    display:flex;
+    flex-direction:column;
+    box-shadow: 2px 3px 0 rgba(31,58,95,0.06);
+  }
+  .res-card.b{ border-top-color:var(--pencil); }
+  .res-card.c{ border-top-color:var(--apple); }
+  .res-card h3{ font-size:1rem; margin-bottom:6px; }
+  .res-card p{ font-size:0.9rem; margin:0 0 12px; flex-grow:1; }
+  .res-card a{ font-weight:700; font-size:0.9rem; }
+  .res-tag{ font-size:0.72rem; color:#5b7089; margin-bottom:8px; }
+
+  /* ---------- Calendar ---------- */
+  .cal-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:10px;}
+  .legend{ display:flex; gap:14px; font-size:0.85rem; flex-wrap:wrap; }
+  .legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .dot.hw{ background:var(--apple); }
+  .dot.quiz{ background:var(--pencil); }
+  .dot.event{ background:var(--leaf); }
+
+  .cal-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:6px;
+  }
+  .cal-dow{ text-align:center; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:0.8rem; color:#5b7089; padding-bottom:4px; }
+  .cal-cell{
+    background:#fff;
+    border:1px solid var(--card-line);
+    border-radius:4px;
+    min-height:74px;
+    padding:6px 6px;
+    font-size:0.82rem;
+    position:relative;
+  }
+  .cal-cell.empty{ background:transparent; border-color:transparent; }
+  .cal-cell.today{ border:2px solid var(--ink); }
+  .cal-date{ font-weight:700; }
+  .cal-dots{ display:flex; gap:3px; margin-top:6px; flex-wrap:wrap; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:2px dashed var(--card-line);
+    margin-top:40px;
+    padding-top:24px;
+    font-size:0.9rem;
+    color:#3d5372;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  @media (max-width:640px){
+    .hero{ flex-direction:column; align-items:flex-start; }
+    .home-grid{ grid-template-columns:1fr; }
+    .day-row{ grid-template-columns:1fr; }
+    .due-badge{ justify-self:start; }
+    .cal-cell{ min-height:52px; font-size:0.72rem; }
+  }
+
+  #google_translate_element{
+    align-self:center;
+    padding-bottom:10px;
+  }
+  #google_translate_element .goog-te-gadget{
+    font-family:'Atkinson Hyperlegible', sans-serif !important;
+    font-size:0 !important; /* hide the "Powered by" text line */
+  }
+  #google_translate_element .goog-te-gadget .goog-te-combo{
+    font-size:0.85rem !important;
+    padding:6px 8px;
+    border-radius:6px;
+    border:1px solid #4a6485;
+    background:#fff;
+    color:var(--ink);
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    section.active{ animation: fade .25s ease; }
+    @keyframes fade{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;} }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-badge">3</div>
+      <div>
+        <h1>Ms. Rivera's 3rd Grade Math</h1>
+        <p>Room 14 · Riverside Elementary</p>
+      </div>
+    </div>
+  </div>
+  <div class="header-inner" style="padding-top:0; padding-bottom:10px;">
+    <nav role="tablist" aria-label="Site sections" style="padding-left:0;">
+      <button role="tab" aria-selected="true" data-tab="home">Home</button>
+      <button role="tab" aria-selected="false" data-tab="homework">Homework</button>
+      <button role="tab" aria-selected="false" data-tab="resources">Resources</button>
+      <button role="tab" aria-selected="false" data-tab="calendar">Calendar</button>
+    </nav>
+    <div id="google_translate_element" aria-label="Translate this page"></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HOME -->
+  <section id="home" class="active">
+    <div class="hero">
+      <div class="num-of-day">
+        <span class="num">47</span>
+        <span class="lbl">NUMBER OF THE DAY</span>
+      </div>
+      <div class="hero-text">
+        <h2>Welcome, mathematicians and families!</h2>
+        <ul class="fact-list">
+          <li>47 = 40 + 7</li>
+          <li>47 is an odd number</li>
+          <li>47 is a prime number</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="welcome-note">
+      <h3>This week in math</h3>
+      <p>We're working on multiplication facts (1–5) and skip counting. Please check the Homework tab for what's due each day, and the Calendar for our Friday quiz.</p>
+    </div>
+
+    <div class="home-grid">
+      <div class="peek-card">
+        <h3>📋 Homework this week</h3>
+        <p>4 assignments, with a quiz on Friday.</p>
+        <button class="goto" data-goto="homework">See homework</button>
+      </div>
+      <div class="peek-card">
+        <h3>🔗 Practice at home</h3>
+        <p>Free sites for extra multiplication and number-sense practice.</p>
+        <button class="goto" data-goto="resources">See resources</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOMEWORK -->
+  <section id="homework">
+    <h2 style="margin-bottom:18px;">This week's homework</h2>
+
+    <div class="day-row">
+      <div class="day-name">Monday<span class="assigned">assigned in class</span></div>
+      <div>
+        <p class="task-title">Practice pages 12–13</p>
+        <p class="task-desc">Adding within 100, with regrouping. Show your work in the boxes.</p>
+      </div>
+      <div class="due-badge">Due Tue</div>
+    </div>
+
+    <div class="day-row">
+      <div class="day-name">Wednesday<span class="assigned">assigned in class</span></div>
+      <div>
+        <p class="task-title">Skip-counting worksheet</p>
+        <p class="task-desc">Count by 5s from 0 to 100, both forward and backward.</p>
+      </div>
+      <div class="due-badge">Due Thu</div>
+    </div>
+
+    <div class="day-row">
+      <div class="day-name">Thursday<span class="assigned">assigned in class</span></div>
+      <div>
+        <p class="task-title">Flashcard practice, 15 minutes</p>
+        <p class="task-desc">Review multiplication facts for 2s, 3s, 4s, and 5s ahead of Friday's quiz.</p>
+      </div>
+      <div class="due-badge">Ongoing</div>
+    </div>
+
+    <div class="day-row">
+      <div class="day-name">Friday<span class="assigned">in class</span></div>
+      <div>
+        <p class="task-title">Multiplication facts quiz (1–5)</p>
+        <p class="task-desc">No extra homework tonight — great job this week!</p>
+      </div>
+      <div class="due-badge done">Quiz day</div>
+    </div>
+
+    <p style="margin-top:20px; font-size:0.88rem; color:#5b7089;">Edit this section's HTML to update assignments each week — each block is one <code>.day-row</code>.</p>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <h2 style="margin-bottom:18px;">Practice at home</h2>
+    <p style="margin-top:0; margin-bottom:20px;">A few free places to keep practicing outside of class. A grown-up can help set these up the first time.</p>
+
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="res-tag">Video lessons · free</div>
+        <h3>Khan Academy Kids</h3>
+        <p>Short, friendly video lessons and practice problems matched to what we're learning in class.</p>
+        <a href="https://www.khanacademy.org/" target="_blank" rel="noopener">khanacademy.org →</a>
+      </div>
+      <div class="res-card b">
+        <div class="res-tag">Games · free</div>
+        <h3>Math Playground</h3>
+        <p>Math games for multiplication, fractions, and logic — good for 10–15 minutes of fun practice.</p>
+        <a href="https://www.mathplayground.com/" target="_blank" rel="noopener">mathplayground.com →</a>
+      </div>
+      <div class="res-card c">
+        <div class="res-tag">Practice · free to start</div>
+        <h3>IXL Math</h3>
+        <p>Skill-by-skill practice with instant feedback. Free daily practice is available without an account.</p>
+        <a href="https://www.ixl.com/math/" target="_blank" rel="noopener">ixl.com/math →</a>
+      </div>
+    </div>
+
+    <p style="margin-top:24px; font-size:0.88rem; color:#5b7089;">Add more cards by copying a <code>.res-card</code> block and changing the title, description, and link.</p>
+  </section>
+
+  <!-- CALENDAR -->
+  <section id="calendar">
+    <div class="cal-head">
+      <h2 id="cal-title">Calendar</h2>
+      <div class="legend">
+        <span><span class="dot hw"></span>Homework due</span>
+        <span><span class="dot quiz"></span>Quiz</span>
+        <span><span class="dot event"></span>Class event</span>
+      </div>
+    </div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <p style="margin-top:20px; font-size:0.88rem; color:#5b7089;">This calendar shows the current month automatically. Edit the <code>events</code> object near the bottom of the page to mark your own dates.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div>Questions? Email <a href="mailto:rivera@riversideelementary.example.edu">rivera@riversideelementary.example.edu</a></div>
+  <div>Made for Room 14 💛</div>
+</footer>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,es,fr,pt',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  // ---- Tab switching ----
+  const tabs = document.querySelectorAll('nav button[role="tab"]');
+  const sections = document.querySelectorAll('main > section');
+
+  function showTab(name){
+    tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.tab === name ? 'true' : 'false'));
+    sections.forEach(s => s.classList.toggle('active', s.id === name));
+  }
+  tabs.forEach(t => t.addEventListener('click', () => showTab(t.dataset.tab)));
+  document.querySelectorAll('.goto').forEach(btn => {
+    btn.addEventListener('click', () => showTab(btn.dataset.goto));
+  });
+
+  // ---- Calendar generation (edit `events` to customize) ----
+  const events = {
+    // day-of-month : 'hw' | 'quiz' | 'event'  (multiple types: array)
+    5: ['hw'],
+    9: ['hw'],
+    12: ['quiz'],
+    18: ['event'],
+    23: ['hw','quiz']
+  };
+
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  document.getElementById('cal-title').textContent = monthNames[month] + " " + year;
+
+  const grid = document.getElementById('cal-grid');
+  ['S','M','T','W','T','F','S'].forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'cal-dow';
+    el.textContent = d;
+    grid.appendChild(el);
+  });
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const todayDate = now.getDate();
+
+  for(let i=0; i<firstDay; i++){
+    const el = document.createElement('div');
+    el.className = 'cal-cell empty';
+    grid.appendChild(el);
+  }
+
+  for(let d=1; d<=daysInMonth; d++){
+    const cell = document.createElement('div');
+    cell.className = 'cal-cell' + (d === todayDate ? ' today' : '');
+    const dateEl = document.createElement('div');
+    dateEl.className = 'cal-date';
+    dateEl.textContent = d;
+    cell.appendChild(dateEl);
+
+    if(events[d]){
+      const dotsWrap = document.createElement('div');
+      dotsWrap.className = 'cal-dots';
+      events[d].forEach(type => {
+        const dot = document.createElement('span');
+        dot.className = 'dot ' + type;
+        dotsWrap.appendChild(dot);
+      });
+      cell.appendChild(dotsWrap);
+    }
+    grid.appendChild(cell);
+  }
+</script>
+
+</body>
+</html>
